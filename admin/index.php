@@ -3,10 +3,7 @@
     <head>
         <?php
         require_once '../classes/PaginasArmazena.php';
-//        require_once '../classes/Paginas.php';
-//        $Pagina = new Paginas();
-//        $Pagina->getPage(@$_REQUEST[p]);
-//        echo $Pagina->getTituloPagina();
+        require_once '../includes/session.php';
         ?><meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="../css/estilo.css">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +31,15 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
                         <!--li><a href="#">Link</a></li-->
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sistema<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <!--li><a href="?p=cadastrarCliente">Configuração</a></li-->
+                                <li><a href="../logout.php">Sair</a></li>
+                            </ul>
+                        </li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clientes<span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -47,7 +53,18 @@
                             </ul>
                         </li>
                         
-                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locação<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <!--li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li-->
+                            </ul>
+                        </li>
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funcionários<span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -55,8 +72,8 @@
                                 <li><a href="?p=procurarFuncionario">Manutenção</a></li>
                             </ul>
                         </li>
-                        
-                        
+
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -81,7 +98,7 @@
             <div class="panel-body">
                 PIM 2016/02
             </div>
-            <div class="panel-footer">Evaldo Maciel</div>
+            <div class="panel-footer"><?php echo "Logado como: <b>" . $logado . "</b>";   ?> </div>
         </div>
     </body>
 </html>
