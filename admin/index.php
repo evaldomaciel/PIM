@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <?php
+        require_once '../classes/PaginasArmazena.php';
+//        require_once '../classes/Paginas.php';
+//        $Pagina = new Paginas();
+//        $Pagina->getPage(@$_REQUEST[p]);
+//        echo $Pagina->getTituloPagina();
+        ?><meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="../css/estilo.css">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +16,7 @@
         <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="../js/bootstrap.min.js"></script>
-        <?php
-        require_once '../classes/Paginas.php';
-        $Pagina = new Paginas();
-        $Pagina->getPage(@$_REQUEST[p]);
-        echo $Pagina->getTituloPagina();
-        ?>
-        
+        <title><?php echo $tituloPagina; ?></title>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -46,6 +46,17 @@
                                 <li><a href="#">One more separated link</a></li-->
                             </ul>
                         </li>
+                        
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funcionários<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="?p=cadastraFuncionario">Cadastrar</a></li>
+                                <li><a href="?p=procurarFuncionario">Manutenção</a></li>
+                            </ul>
+                        </li>
+                        
+                        
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -63,7 +74,7 @@
         </nav>
         <div class="principal">
             <?php
-                    include_once $Pagina->getLink();
+            include_once $link;
             ?>
         </div>
         <div class="panel panel-default">

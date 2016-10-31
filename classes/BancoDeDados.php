@@ -2,14 +2,36 @@
 
 class BancoDeDados {
 
+    private $serverBD = "localhost";
+    private $usuarioBD = "root";
+    private $senhaBD = null;
+    private $database = "pim";
+    
+    public function getServerBD() {
+        return $this->serverBD;
+    }
+
+    public function getUsuarioBD() {
+        return $this->usuarioBD;
+    }
+
+    public function getSenhaBD() {
+        return $this->senhaBD;
+    }
+
+    public function getDatabase() {
+        return $this->database;
+    }
+    
     function conectaBD() {
-        @mysql_connect('localhost', 'root', '');
-        mysql_select_db("pim");
+        @mysql_connect($this->getServerBD(), $this->getUsuarioBD(), $this->getSenhaBD());
+        mysql_select_db($this->getDatabase());
         //mysql_close($link);
     }
 
     function executaQuery($queryExecutar) {
-        @mysql_query($queryExecutar);
+        mysql_query($queryExecutar);
+        echo mysql_error();
     }
 
     function queryClienteConsulta() {

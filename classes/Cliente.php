@@ -12,8 +12,10 @@ class Cliente extends BancoDeDados {
     private $endereco;
     private $telefone;
     private $email;
-    private $cidade;
-    private $rg;
+	
+    private $cidade; //chave estrangeira Cidades_id da tabela "cidades"
+
+	private $rg;
     private $orgExp;
     private $sexo;
     private $primeiraCNH;
