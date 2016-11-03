@@ -6,7 +6,7 @@ class BancoDeDados {
     private $usuarioBD = "root";
     private $senhaBD = null;
     private $database = "pim";
-
+    
     public function getServerBD() {
         return $this->serverBD;
     }
@@ -22,7 +22,7 @@ class BancoDeDados {
     public function getDatabase() {
         return $this->database;
     }
-
+    
     function conectaBD() {
         @mysql_connect($this->getServerBD(), $this->getUsuarioBD(), $this->getSenhaBD());
         mysql_select_db($this->getDatabase());
@@ -30,7 +30,6 @@ class BancoDeDados {
     }
 
     function executaQuery($queryExecutar) {
-        $this->conectaBD();
         mysql_query($queryExecutar);
         echo mysql_error();
     }
@@ -59,8 +58,8 @@ class BancoDeDados {
         $result = @mysql_query("select * from cidades");
         $row = mysql_fetch_array($result);
     }
-
-    function getPost($posta) {
+    
+    function getPost($posta){
         $posta = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     }
 
